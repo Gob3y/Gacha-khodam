@@ -8,7 +8,8 @@ document.getElementById('kodamForm').addEventListener('submit', function(event) 
             const kodams = data.split('\n').map(kodam => kodam.trim()).filter(kodam => kodam);
             const randomKodam = kodams[Math.floor(Math.random() * kodams.length)];
             const resultElement = document.getElementById('result');
-            resultElement.innerText = `Nama: ${name}, Kodam: ${randomKodam}`;
+            resultElement.innerText = `Nama : ${name}, Kodam : ${randomKodam}`;
+            resultElement.innerText = `Khodam : ${randomKodam}`;
             resultElement.classList.add('show');
         })
         .catch(error => {
