@@ -43,13 +43,13 @@ input {
 }
 
 input:focus {
-    border-color: #333544;
+    border-color: #22284D;
     outline: none;
 }
 
 button {
     padding: 12px 20px;
-    background-color: #333544;
+    background-color: #22284D;
     color: white;
     border: none;
     border-radius: 4px;
