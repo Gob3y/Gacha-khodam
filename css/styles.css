@@ -7,8 +7,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    backgroung-color: #22284D;
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    background: linear-gradient(135deg, #333544, #22284D);
     padding: 0 20px;
 }
 
