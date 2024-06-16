@@ -43,13 +43,13 @@ input {
 }
 
 input:focus {
-    border-color: #007BFF;
+    border-color: #333544;
     outline: none;
 }
 
 button {
     padding: 12px 20px;
-    background-color: #007BFF;
+    background-color: #333544;
     color: white;
     border: none;
     border-radius: 4px;
@@ -61,7 +61,7 @@ button {
 }
 
 button:hover {
-    background-color: #333544;
+    background-color: #22284D;
     transform: translateY(-2px);
 }
 
