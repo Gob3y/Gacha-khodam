@@ -196,7 +196,6 @@ Nasi Kuning
 Nasi Uduk
 Kerak Telor
 Nasi Liwet
-Boboiboy Kuasa Sigma
 Ember Bocor
 jas Hujan
 Bengbeng
@@ -218,3 +217,4 @@ Tongsis
 Kerambol
 Meja Billiard
 Kaos Kaki
+Supra Bapak
