@@ -108,9 +108,6 @@ button:hover {
             animation-delay: 5s;
         }
 
-        .rotating-text span:nth-child(3) {
-            animation-delay: 10s;
-        }
 
         @keyframes rotateText {
             0%, 25% { opacity: 0; transform: translateY(100%); }
