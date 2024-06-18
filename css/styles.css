@@ -84,33 +84,32 @@ button:hover {
 }
 
 .rotating-text {
-            position: relative;
-            height: 1em; 
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    position: relative;
+    height: 1.5em; /* Disini gua tambah tinggi untuk mencegah teks terpotong */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .rotating-text span {
-            position: absolute;
-            width: 100%;
-            opacity: 0;
-            text-align: center;
-            animation: rotateText 8s linear infinite; /* Disini gua tambahin total delay nya 5 detik, 5+5+5 = 15 detik */
-        }
+.rotating-text span {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    text-align: center;
+    animation: rotateText 8s linear infinite; 
+}
 
-        .rotating-text span:nth-child(1) {
-            animation-delay: 0s;
-        }
+.rotating-text span:nth-child(1) {
+    animation-delay: 0s;
+}
 
-        .rotating-text span:nth-child(2) {
-            animation-delay: 4s;
-        }
+.rotating-text span:nth-child(2) {
+    animation-delay: 4s;
+}
 
-
-        @keyframes rotateText {
-            0%, 25% { opacity: 0; transform: translateY(100%); }
-            5%, 20% { opacity: 1; transform: translateY(0); }
-            30%, 100% { opacity: 0; transform: translateY(-100%); }
-        }
+@keyframes rotateText {
+    0%, 25% { opacity: 0; transform: translateY(100%); }
+    5%, 20% { opacity: 1; transform: translateY(0); }
+    30%, 100% { opacity: 0; transform: translateY(-100%); }
+}
