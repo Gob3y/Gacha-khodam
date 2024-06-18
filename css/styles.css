@@ -97,7 +97,7 @@ button:hover {
             width: 100%;
             opacity: 0;
             text-align: center;
-            animation: rotateText 6s linear infinite; /* Disini gua tambahin total delay nya 5 detik, 5+5+5 = 15 detik */
+            animation: rotateText 8s linear infinite; /* Disini gua tambahin total delay nya 5 detik, 5+5+5 = 15 detik */
         }
 
         .rotating-text span:nth-child(1) {
@@ -105,7 +105,7 @@ button:hover {
         }
 
         .rotating-text span:nth-child(2) {
-            animation-delay: 3s;
+            animation-delay: 5s;
         }
 
 
