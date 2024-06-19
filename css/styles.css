@@ -85,7 +85,7 @@ button:hover {
 
 .rotating-text {
     position: relative;
-    height: 1.5em; /* Disini gua tambah tinggi untuk mencegah teks terpotong */
+    height: 2em; /* Disini gua tambah tinggi untuk mencegah teks terpotong */
     overflow: hidden;
     display: flex;
     justify-content: center;
