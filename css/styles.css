@@ -97,7 +97,7 @@ button:hover {
     width: 100%;
     opacity: 0;
     text-align: center;
-    animation: rotateText 8s linear infinite; 
+    animation: rotateText 10s linear infinite; 
 }
 
 .rotating-text span:nth-child(1) {
@@ -105,7 +105,7 @@ button:hover {
 }
 
 .rotating-text span:nth-child(2) {
-    animation-delay: 4s;
+    animation-delay: 5s;
 }
 
 @keyframes rotateText {
