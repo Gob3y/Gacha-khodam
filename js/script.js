@@ -8,25 +8,24 @@ document.getElementById('kodamForm').addEventListener('submit', function(event) 
             const kodams = data.split('\n').map(kodam => kodam.trim()).filter(kodam => kodam);
             const randomKodam = kodams[Math.floor(Math.random() * kodams.length)];
             const resultElement = document.getElementById('result');
-            resultElement.innerText = `Nama : ${name}\nKhodam : ${randomKodam}`;
+            resultElement.innerText = `Nama: ${name}\nKhodam: ${randomKodam}`;
             resultElement.classList.add('show');
-         })
 
- })        
-           .catch(error => {
-            console.error('Error fetching the kodam list:', error);
-            const resultElement = document.getElementById('result');
-            resultElement.innerText = 'Error fetching the kodam list.';
-            resultElement.classList.add('show');
-        });
             const tableBody = document.getElementById('checkTableBody');
             const newRow = tableBody.insertRow();
             const nameCell = newRow.insertCell(0);
             const khodamCell = newRow.insertCell(1);
             nameCell.textContent = name;
-            khodamCell.textContent = randomKhodam;
-            saveToLocalStorage(name, randomKhodam);
-        
+            khodamCell.textContent = randomKodam;
+            saveToLocalStorage(name, randomKodam);
+
+        })
+        .catch(error => {
+            console.error('Error fetching the kodam list:', error);
+            const resultElement = document.getElementById('result');
+            resultElement.innerText = 'Error fetching the kodam list.';
+            resultElement.classList.add('show');
+        });
 });
 
 document.getElementById('clearButton').addEventListener('click', function() {
@@ -51,3 +50,5 @@ function loadTableData() {
         khodamCell.textContent = item.khodam;
     });
 }
+
+document.addEventListener('DOMContentLoaded', loadTableData);
