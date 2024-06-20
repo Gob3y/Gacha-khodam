@@ -1,57 +1,54 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('kodamForm');
-    const resultElement = document.getElementById('result');
-    const checkedTableBody = document.querySelector('#checkedTable tbody');
-    const clearTableButton = document.getElementById('clearTable');
+document.getElementById('kodamForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
 
-    const checkedNames = JSON.parse(localStorage.getItem('checkedNames')) || [];
+    fetch('/khodam/khodam.txt')
+        .then(response => response.text())
+        .then(data => {
+            const kodams = data.split('\n').map(kodam => kodam.trim()).filter(kodam => kodam);
+            const randomKodam = kodams[Math.floor(Math.random() * kodams.length)];
+            const resultElement = document.getElementById('result');
+            resultElement.innerText = `Nama: ${name}\nKhodam: ${randomKodam}`;
+            resultElement.classList.add('show');
 
-    function updateCheckedTable() {
-        checkedTableBody.innerHTML = '';
-        checkedNames.forEach(({ name, kodam }) => {
-            const row = document.createElement('tr');
-            row.innerHTML = <td>${name}</td><td>${kodam}</td>;
-            checkedTableBody.appendChild(row);
+            const tableBody = document.getElementById('checkTableBody');
+            const newRow = tableBody.insertRow();
+            const nameCell = newRow.insertCell(0);
+            const khodamCell = newRow.insertCell(1);
+            nameCell.textContent = name;
+            khodamCell.textContent = randomKodam;
+            saveToLocalStorage(name, randomKodam);
+
+        })
+        .catch(error => {
+            console.error('Error fetching the kodam list:', error);
+            const resultElement = document.getElementById('result');
+            resultElement.innerText = 'Error fetching the kodam list.';
+            resultElement.classList.add('show');
         });
-    }
-
-    function fetchKodamList() {
-        return fetch('/khodam/khodam.txt')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(HTTP error! status: ${response.status});
-                }
-                return response.text();
-            })
-            .then(data => data.split('\n').map(kodam => kodam.trim()).filter(kodam => kodam));
-    }
-
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-
-        fetchKodamList()
-            .then(kodams => {
-                const randomKodam = kodams[Math.floor(Math.random() * kodams.length)];
-                resultElement.innerText = Nama: ${name}\nKhodam: ${randomKodam};
-                resultElement.classList.add('show');
-
-                checkedNames.push({ name, kodam: randomKodam });
-                localStorage.setItem('checkedNames', JSON.stringify(checkedNames));
-                updateCheckedTable();
-            })
-            .catch(error => {
-                console.error('Error fetching the kodam list:', error);
-                resultElement.innerText = 'Error fetching the kodam list.';
-                resultElement.classList.add('show');
-            });
-    });
-
-    clearTableButton.addEventListener('click', function() {
-        localStorage.removeItem('checkedNames');
-        checkedNames.length = 0;
-        updateCheckedTable();
-    });
-
-    updateCheckedTable();
 });
+
+document.getElementById('clearButton').addEventListener('click', function() {
+    localStorage.removeItem('khodamData');
+    document.getElementById('checkTableBody').innerHTML = '';
+});
+
+function saveToLocalStorage(name, khodam) {
+    const data = JSON.parse(localStorage.getItem('khodamData')) || [];
+    data.push({ name: name, khodam: khodam });
+    localStorage.setItem('khodamData', JSON.stringify(data));
+}
+
+function loadTableData() {
+    const data = JSON.parse(localStorage.getItem('khodamData')) || [];
+    const tableBody = document.getElementById('checkTableBody');
+    data.forEach(item => {
+        const newRow = tableBody.insertRow();
+        const nameCell = newRow.insertCell(0);
+        const khodamCell = newRow.insertCell(1);
+        nameCell.textContent = item.name;
+        khodamCell.textContent = item.khodam;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', loadTableData);
