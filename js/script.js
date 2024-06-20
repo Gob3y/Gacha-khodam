@@ -11,6 +11,14 @@ document.getElementById('kodamForm').addEventListener('submit', function(event) 
             resultElement.innerText = `Nama : ${name}\nKhodam : ${randomKodam}`;
             resultElement.classList.add('show');
 
+            const tableBody = document.getElementById('checkTableBody');
+            const newRow = tableBody.insertRow();
+            const nameCell = newRow.insertCell(0);
+            const khodamCell = newRow.insertCell(1);
+            nameCell.textContent = name;
+            khodamCell.textContent = randomKhodam;
+            saveToLocalStorage(name, randomKhodam);
+
         })
         .catch(error => {
             console.error('Error fetching the kodam list:', error);
