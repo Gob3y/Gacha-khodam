@@ -44,6 +44,4 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.removeItem('checkedNames');
         checkedNames.length = 0;
         updateCheckedTable();
-    });
-    updateCheckedTable();
 });
