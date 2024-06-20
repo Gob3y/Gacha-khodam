@@ -27,3 +27,26 @@ document.getElementById('kodamForm').addEventListener('submit', function(event) 
             resultElement.classList.add('show');
         });
 });
+
+document.getElementById('clearButton').addEventListener('click', function() {
+    localStorage.removeItem('khodamData');
+    document.getElementById('checkTableBody').innerHTML = '';
+});
+
+function saveToLocalStorage(name, khodam) {
+    const data = JSON.parse(localStorage.getItem('khodamData')) || [];
+    data.push({ name: name, khodam: khodam });
+    localStorage.setItem('khodamData', JSON.stringify(data));
+}
+
+function loadTableData() {
+    const data = JSON.parse(localStorage.getItem('khodamData')) || [];
+    const tableBody = document.getElementById('checkTableBody');
+    data.forEach(item => {
+        const newRow = tableBody.insertRow();
+        const nameCell = newRow.insertCell(0);
+        const khodamCell = newRow.insertCell(1);
+        nameCell.textContent = item.name;
+        khodamCell.textContent = item.khodam;
+    });
+}
