@@ -82,3 +82,29 @@ button:hover {
         width: 50%;
     }
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 2px solid #000000;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #ff6347;
+    color: white;
+}
+
+.table-container {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 20px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0 #000000;
+}
