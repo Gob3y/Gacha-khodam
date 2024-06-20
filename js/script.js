@@ -1,54 +1,130 @@
-document.getElementById('kodamForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const name = document.getElementById('name').value;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-    fetch('/khodam/khodam.txt')
-        .then(response => response.text())
-        .then(data => {
-            const kodams = data.split('\n').map(kodam => kodam.trim()).filter(kodam => kodam);
-            const randomKodam = kodams[Math.floor(Math.random() * kodams.length)];
-            const resultElement = document.getElementById('result');
-            resultElement.innerText = `Nama : ${name}\nKhodam : ${randomKodam}`;
-            resultElement.classList.add('show');
-
-            const tableBody = document.getElementById('checkTableBody');
-            const newRow = tableBody.insertRow();
-            const nameCell = newRow.insertCell(0);
-            const khodamCell = newRow.insertCell(1);
-            nameCell.textContent = name;
-            khodamCell.textContent = randomKodam;
-            saveToLocalStorage(name, randomKodam);
-
-        })
-        .catch(error => {
-            console.error('Error fetching the kodam list:', error);
-            const resultElement = document.getElementById('result');
-            resultElement.innerText = 'Error fetching the kodam list.';
-            resultElement.classList.add('show');
-        });
-});
-
-document.getElementById('clearButton').addEventListener('click', function() {
-    localStorage.removeItem('khodamData');
-    document.getElementById('checkTableBody').innerHTML = '';
-});
-
-function saveToLocalStorage(name, khodam) {
-    const data = JSON.parse(localStorage.getItem('khodamData')) || [];
-    data.push({ name: name, khodam: khodam });
-    localStorage.setItem('khodamData', JSON.stringify(data));
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #333544, #22284D);
+    padding: 0 20px;
 }
 
-function loadTableData() {
-    const data = JSON.parse(localStorage.getItem('khodamData')) || [];
-    const tableBody = document.getElementById('checkTableBody');
-    data.forEach(item => {
-        const newRow = tableBody.insertRow();
-        const nameCell = newRow.insertCell(0);
-        const khodamCell = newRow.insertCell(1);
-        nameCell.textContent = item.name;
-        khodamCell.textContent = item.khodam;
-    });
+.container {
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease;
 }
 
-document.addEventListener('DOMContentLoaded', loadTableData);
+.container:hover {
+    transform: translateY(-10px);
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input {
+    padding: 12px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #22284D;
+    outline: none;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #22284D;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #22284D;
+    transform: translateY(-2px);
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#result.show {
+    opacity: 1;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    max-height: 300px; /* tambahin sesuai keinginan disini */
+    overflow-y: auto;
+    display: block;
+}
+
+thead, tbody {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+#clearTable {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #22284D;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#clearTable:hover {
+    background-color: #22284D;
+    transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 50%;
+    }
+}
