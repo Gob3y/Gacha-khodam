@@ -106,9 +106,5 @@ th {
     margin-top: 1px;
     border: 2px solid #000000;
     border-radius: 10px;
-}
-
-.clearButton {
-    margin: 100Px;
-
+    margin-bottom: 200px;
 }
