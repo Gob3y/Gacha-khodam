@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function fetchKodamList() {
-        return fetch('khodam/khodam.txt')
+        return fetch('/khodam/khodam.txt')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(HTTP error! status: ${response.status});
