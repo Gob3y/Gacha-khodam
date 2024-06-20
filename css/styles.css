@@ -103,7 +103,7 @@ th {
 .table-container {
     max-height: 300px;
     overflow-y: auto;
-    margin-top: 10px;
+    margin-top: 5px;
     border: 2px solid #000000;
     border-radius: 10px;
 }
