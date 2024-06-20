@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkedTableBody = document.querySelector('#checkedTable tbody');
     const clearTableButton = document.getElementById('clearTable');
 
-    // Gua tambahin juga simpan nama user dan nama khodam nya ke simpan di localstorage
     const checkedNames = JSON.parse(localStorage.getItem('checkedNames')) || [];
 
     function updateCheckedTable() {
@@ -16,19 +15,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function fetchKodamList() {
+        return fetch('/khodam/khodam.txt')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(HTTP error! status: ${response.status});
+                }
+                return response.text();
+            })
+            .then(data => data.split('\n').map(kodam => kodam.trim()).filter(kodam => kodam));
+    }
+
     form.addEventListener('submit', function(event) {
         event.preventDefault();
         const name = document.getElementById('name').value;
 
-        fetch('/khodam/khodam.txt')
-            .then(response => response.text())
-            .then(data => {
-                const kodams = data.split('\n').map(kodam => kodam.trim()).filter(kodam => kodam);
+        fetchKodamList()
+            .then(kodams => {
                 const randomKodam = kodams[Math.floor(Math.random() * kodams.length)];
                 resultElement.innerText = Nama: ${name}\nKhodam: ${randomKodam};
                 resultElement.classList.add('show');
 
-                // untuk menambahkan nama dan cek
                 checkedNames.push({ name, kodam: randomKodam });
                 localStorage.setItem('checkedNames', JSON.stringify(checkedNames));
                 updateCheckedTable();
@@ -45,5 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
         checkedNames.length = 0;
         updateCheckedTable();
     });
+
     updateCheckedTable();
 });
