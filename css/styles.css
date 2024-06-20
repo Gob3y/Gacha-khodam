@@ -101,9 +101,9 @@ th {
 }
 
 .table-container {
-    max-height: 300px;
+    max-height: 200px;
     overflow-y: auto;
-    margin-top: 5px;
+    margin-top: 20px;
     border: 2px solid #000000;
     border-radius: 10px;
 }
