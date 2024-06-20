@@ -83,33 +83,27 @@ button:hover {
     }
 }
 
-.rotating-text {
-    position: relative;
-    height: 2em; /* Disini gua tambah tinggi untuk mencegah teks terpotong */
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.rotating-text span {
-    position: absolute;
+table {
     width: 100%;
-    opacity: 0;
-    text-align: center;
-    animation: rotateText 10s linear infinite; 
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.rotating-text span:nth-child(1) {
-    animation-delay: 0s;
+th, td {
+    border: 2px solid #000000;
+    padding: 10px;
+    text-align: left;
 }
 
-.rotating-text span:nth-child(2) {
-    animation-delay: 5s;
+th {
+    background-color: #ff6347;
+    color: white;
 }
 
-@keyframes rotateText {
-    0%, 25% { opacity: 0; transform: translateY(100%); }
-    5%, 20% { opacity: 1; transform: translateY(0); }
-    30%, 100% { opacity: 0; transform: translateY(-100%); }
-}
+.table-container {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 20px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0 #000000;
