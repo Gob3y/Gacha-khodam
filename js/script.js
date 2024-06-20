@@ -11,6 +11,8 @@ document.getElementById('kodamForm').addEventListener('submit', function(event) 
             resultElement.innerText = `Nama : ${name}\nKhodam : ${randomKodam}`;
             resultElement.classList.add('show');
 
+        })
+
             const tableBody = document.getElementById('checkTableBody');
             const newRow = tableBody.insertRow();
             const nameCell = newRow.insertCell(0);
