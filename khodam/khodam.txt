@@ -1,3 +1,6 @@
+Adudu
+Kalkulator
+Cangkul
 Macan Putih
 Bebek Goreng
 Ayam Geprek
@@ -222,7 +225,7 @@ Spion Motor
 Kelelawar
 Laba Laba
 Kecebong
-Semu
+Semut
 Topeng Monyet
 Buaya Darat
 Ikan Cupang
@@ -248,3 +251,30 @@ Sapi Perah
 Kambing Gunung
 Sepatu Warrior
 Celana Cutbray
+Oli Samping
+Sapu Lidi
+Kecoa Madagaskar
+Gagang Pintu
+Kue Nastar
+Kulkas 2 Pintu
+Rehan WhatsApp
+Sigit Rendang
+Babi Ngepet
+Sendal Bolong
+Bantal Guling
+Kerbau Sumatra
+Gabus Malas
+Sotong Goreng
+Belut Bakar
+Prekedel Tempe
+Bakwan Jagung
+Sekar Rokok
+Kura Kura Ninja
+Sepatu Homipet
+Pur Ayam
+Bola Bekel
+Siput Loncat
+Burung Bego
+Ayam Tiren
+Lumpia Basah
+Kosong
