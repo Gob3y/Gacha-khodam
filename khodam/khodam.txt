@@ -11,6 +11,8 @@ Penggaris
 Papan Tulis
 Gunting Kuku
 Harimau
+Gorilla
+Dede Inoen
 Macan Tutul
 Anime
 Macan Ompong
@@ -91,6 +93,10 @@ Balmond
 Mesin Bubut
 Sate Biawak
 Katak Bhizer
+Kepiting
+Kelomang
+Ultraman Orb
+Belalang Sigma
 Kolor Ijo
 Kucing
 Kecebong
