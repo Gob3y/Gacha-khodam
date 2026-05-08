@@ -1,32 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cek Kodam - @gobeyjoki</title>
-    <link rel="stylesheet" href="./css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biodata Link</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#667eea,#764ba2);
+      padding:20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:400px;
+      background:#fff;
+      border-radius:25px;
+      padding:30px;
+      text-align:center;
+      box-shadow:0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    .profile-img{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      object-fit:cover;
+      border:4px solid #667eea;
+      margin-bottom:15px;
+    }
+
+    h1{
+      font-size:28px;
+      color:#333;
+      margin-bottom:5px;
+    }
+
+    .job{
+      color:#666;
+      margin-bottom:15px;
+    }
+
+    .bio{
+      font-size:14px;
+      color:#555;
+      line-height:1.6;
+      margin-bottom:25px;
+    }
+
+    .links{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .links a{
+      text-decoration:none;
+      background:#667eea;
+      color:white;
+      padding:14px;
+      border-radius:12px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .links a:hover{
+      background:#4f5fd1;
+      transform:translateY(-3px);
+    }
+
+    .footer{
+      margin-top:20px;
+      font-size:12px;
+      color:#888;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>CEK KHODAM</h1>
-        <form id="kodamForm">
-            <label for="name">Masukan Nama :</label>
-            <input type="text" id="name" name="name" required>
-            <button type="submit">CEK</button>
-        </form>
-        <div id="result"></div>
-        <h2>SUDAH DI CEK</h2>
-        <table id="checkedTable">
-            <thead>
-                <tr>
-                    <th>Nama</th>
-                    <th>Khodam</th>
-                </tr>
-            </thead>
-            <tbody id="checkedTableBody"></tbody>
-        </table>
-        <button id="clearTable">HAPUS TABLE</button>
+
+  <div class="card">
+
+    <img 
+      src="https://via.placeholder.com/150" 
+      alt="Foto Profil"
+      class="profile-img"
+    >
+
+    <h1>Nama Kamu</h1>
+
+    <p class="job">
+      Pelajar | Programmer | Content Creator
+    </p>
+
+    <p class="bio">
+      Halo! Selamat datang di website biodata saya.
+      Di sini kamu bisa menemukan semua link sosial media saya.
+    </p>
+
+    <div class="links">
+      <a href="https://instagram.com/" target="_blank">
+        Instagram
+      </a>
+
+      <a href="https://tiktok.com/" target="_blank">
+        TikTok
+      </a>
+
+      <a href="https://youtube.com/" target="_blank">
+        YouTube
+      </a>
+
+      <a href="https://wa.me/628123456789" target="_blank">
+        WhatsApp
+      </a>
+
+      <a href="mailto:email@gmail.com">
+        Email
+      </a>
     </div>
-    <script src="./js/script.js"></script>
+
+    <div class="footer">
+      © 2026 Nama Kamu
+    </div>
+
+  </div>
+
 </body>
-</html>
+    </html>
