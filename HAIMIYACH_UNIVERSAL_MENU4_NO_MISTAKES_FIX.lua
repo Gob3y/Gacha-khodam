@@ -752,7 +752,7 @@ local Menu3Button = MakeButton("MOVEMENT", MenuGrid, function()
 end)
 
 local Menu4Button = MakeButton("AIMBOT", MenuGrid, function()
-    ShowPage("MENU4")
+    ShowPage("AIMBOT")
 end)
 
 local FlingBackFrame = New("Frame", {
